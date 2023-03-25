@@ -14,7 +14,7 @@ function App() {
 				withCredentials: true,
 			});
 
-			const json = await response.json();
+			const json = await response.data();
 			setData(json);
 			console.log(response.headers);
 		}
@@ -22,14 +22,14 @@ function App() {
 	}, []);
 
 	return (
-		<div>
+		<>
 			<h1>My Azure Function Data:</h1>
 			<ul>
 				{data.map((item, index) => (
 					<li key={index}>{item}</li>
 				))}
 			</ul>
-		</div>
+		</>
 	);
 }
 
